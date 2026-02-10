@@ -2,11 +2,7 @@ pipeline {
   agent any
 
   tools {
-    jdk 'jdk17'
-  }
-
-  environment {
-    MVN = "./mvnw"
+    jdk 'jdk21'
   }
 
   stages {
@@ -17,7 +13,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'chmod +x mvnw || true'
-        sh '${MVN} -B -DskipTests clean package'
+        sh './mvnw -B -DskipTests clean package'
       }
     }
 
