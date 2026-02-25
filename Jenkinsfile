@@ -23,7 +23,7 @@ pipeline {
 
     stage('SonarQube') {
       steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+        withCredentials([string(credentialsId: 'sonarcube', variable: 'SONAR_AUTH_TOKEN')]) {
           sh "./mvnw -B sonar:sonar -Dsonar.projectKey=devops_git -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.token=${SONAR_AUTH_TOKEN}"
         }
       }
